@@ -1,0 +1,41 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block titre %}liste des Applications{% endblock %}
+{% block miniTitre %}liste des Applications{% endblock %}
+
+{% block content %}
+    <h1>Application index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idapp</th>
+                <th>Nom</th>
+                <th>Desc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application in applications %}
+            <tr>
+                <td>{{ application.idapp }}</td>
+                <td>{{ application.nom }}</td>
+                <td>{{ application.description }}</td>
+                <td width="50">
+                    <a class="btn btn-block btn-outline-info" href="{{ path('application_show', {'idapp': application.idapp}) }}">Details</a>
+                </td>
+                <td width="50">
+
+                    <a class="btn btn-block btn-outline-warning" href="{{ path('application_edit', {'idapp': application.idapp}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('application_new') }}">Create new</a>
+{% endblock %}

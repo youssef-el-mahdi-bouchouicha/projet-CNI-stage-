@@ -281,14 +281,14 @@
                                 <p style="color:#00a8c6"> Gestion des Applications:</p>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ path('application_new') }}" class="nav-link">
                                     <i class='fas fa-code'></i>
                                     <p>Nouvelle Application</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ path('application_index') }}" class="nav-link">
                                     <i class='	fas fa-qrcode'></i>
                                     <p>Liste des Applications </p>
                                 </a>
@@ -617,7 +617,7 @@
         <!-- Control sidebar content goes here -->
     </aside>
     <!-- /.control-sidebar -->
-
+{% block footer %}
     <!-- Main Footer -->
     <footer class="main-footer">
         <a href="http://www.cni.tn/index.php/fr/">
@@ -632,7 +632,7 @@
         </div>
     </footer>
 
-
+{% endblock %}
 <!-- ./wrapper -->
 
 

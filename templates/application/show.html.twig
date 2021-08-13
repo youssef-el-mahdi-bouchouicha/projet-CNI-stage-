@@ -1,0 +1,30 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block title %}Application{% endblock %}
+
+{% block content %}
+    <h1>Application</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idapp</th>
+                <td>{{ application.idapp }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ application.nom }}</td>
+            </tr>
+            <tr>
+                <th>Desc</th>
+                <td>{{ application.desc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('application_index') }}">back to list</a>
+
+    <a href="{{ path('application_edit', {'idapp': application.idapp}) }}">edit</a>
+
+    {{ include('application/_delete_form.html.twig') }}
+{% endblock %}
