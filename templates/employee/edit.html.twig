@@ -1,0 +1,13 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block titre %}Ajouter des Employees{% endblock %}
+{% block miniTitre %}ajouter des Employees{% endblock %}
+
+{% block content %}
+
+    {{ include('employee/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('employee_index') }}">back to list</a>
+
+    {{ include('employee/_delete_form.html.twig') }}
+{% endblock %}

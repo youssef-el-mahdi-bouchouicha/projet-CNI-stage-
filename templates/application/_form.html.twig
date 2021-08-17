@@ -1,7 +1,7 @@
 {{ form_start(form, {attr: {'novalidate': 'novalidate'}}) }}
 <div class="container">
     <br>
-    <h3>Ajouter une application</h3>
+    <h4 align="center">Ajouter une application</h4>
 
 
     <div class="form-group">
@@ -26,3 +26,48 @@
 
 </div>
 {{ form_end(form) }}
+<div class="container">
+    <br>
+    <h4 align="center">Ajouter une demande</h4>
+
+
+    <div class="form-group">
+        {{ form_label(form.idapp,"Nom de l'appli:") }}
+        <div style="color: #ff0000">
+            {{ form_errors(form.idapp)}}
+        </div>
+        {{ form_widget(form.idapp, {attr: {class:'form-control','id':'nom'}}) }}
+    </div>
+    {{ form_label(form.rdvdepo,"rendez_vous le :") }}
+    <div style="color: #ff0000">
+        {{ form_errors(form.rdvdepo)}}
+    </div>
+    {{ form_widget(form.rdvdepo, {attr: {class:'form-control','id':'rdevdepo'}}) }}
+
+    {{ form_label(form.rdvdepo,"rendez_vous pour recuperer le :") }}
+    <div style="color: #ff0000">
+        {{ form_errors(form.rdvrec)}}
+    </div>
+    {{ form_widget(form.rdvrec, {attr: {class:'form-control','id':'rdvrec'}}) }}
+
+    {{ form_label(form.rdvdepo,"rendez_vous le :") }}
+    <div style="color: #ff0000">
+        {{ form_errors(form.rdvdepo)}}
+    </div>
+    {{ form_widget(form.rdvdepo, {attr: {class:'form-control','id':'rdevdepo'}}) }}
+
+    {{ form_label(form.rdvdepo,"Nom de la machine :") }}
+    <div style="color: #ff0000">
+        {{ form_errors(form.nommachine)}}
+    </div>
+    {{ form_widget(form.nommachine, {attr: {class:'form-control','id':'nommachine'}}) }}
+
+    {{ form_label(form.rdvdepo,"Avez_vous des remarque ? ") }}
+    <div style="color: #ff0000">
+        {{ form_errors(form.remarque)}}
+    </div>
+    {{ form_widget(form.remarque, {attr: {class:'form-control','id':'remarque'}}) }}
+
+
+
+</div>

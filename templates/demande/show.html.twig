@@ -1,0 +1,55 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block titre %}details des demandes{% endblock %}
+{% block miniTitre %}details des demandes{% endblock %}
+
+{% block content %}
+    <h4 align="center">detail demande</h4>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Idd</th>
+                <td>{{ demande.idd }}</td>
+            </tr>
+            <tr>
+                <th>Idc</th>
+                <td>{{ demande.idc }}</td>
+            </tr>
+            <tr>
+                <th>Ide</th>
+                <td>{{ demande.ide }}</td>
+            </tr>
+            <tr>
+                <th>Idapp</th>
+                <td>{{ demande.idapp }}</td>
+            </tr>
+            <tr>
+                <th>Datedemande</th>
+                <td>{{ demande.datedemande ? demande.datedemande|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rdvdepo</th>
+                <td>{{ demande.rdvdepo ? demande.rdvdepo|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rdvrec</th>
+                <td>{{ demande.rdvrec ? demande.rdvrec|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nommachine</th>
+                <td>{{ demande.nommachine }}</td>
+            </tr>
+            <tr>
+                <th>Remarque</th>
+                <td>{{ demande.remarque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_index') }}">back to list</a>
+
+    <a href="{{ path('demande_edit', {'idd': demande.idd}) }}">edit</a>
+
+    {{ include('demande/_delete_form.html.twig') }}
+{% endblock %}

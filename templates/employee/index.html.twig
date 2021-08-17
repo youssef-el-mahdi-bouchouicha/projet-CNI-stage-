@@ -1,0 +1,46 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block titre %}liste des emplyees{% endblock %}
+{% block miniTitre %}liste des Employees{% endblock %}
+
+{% block content %}
+    <h4 align="center">Employes</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ide</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>Poste</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.ide }}</td>
+                <td>{{ employee.nom }}</td>
+                <td>{{ employee.prenom }}</td>
+                <td>{{ employee.tel }}</td>
+                <td>{{ employee.poste }}</td>
+                <td width="50">
+                    <a class="btn btn-block btn-outline-info" href="{{ path('employee_show', {'ide': employee.ide}) }}">Detail</a>
+
+                </td>
+                <td width="50">
+
+                    <a class="btn btn-block btn-outline-warning" href="{{ path('employee_edit', {'ide': employee.ide}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('employee_new') }}">Create new</a>
+{% endblock %}
