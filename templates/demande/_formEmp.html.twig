@@ -3,14 +3,14 @@
     <br>
     <h4 align="center">Ajouter une demande</h4>
 
-    <div class="form-group">
+    <div hidden="hidden" class="form-group">
         {{ form_label(form.idc,"Nom du client :") }}
         <div style="color: #ff0000">
             {{ form_errors(form.idc)}}
         </div>
         {{ form_widget(form.idc, {attr: {class:'form-control','id':'idc'}}) }}
     </div>
-    <div class="form-group">
+    <div hidden="hidden" class="form-group">
         {{ form_label(form.ide,"Nom de l'employee:") }}
         <div style="color: #ff0000">
             {{ form_errors(form.ide)}}
