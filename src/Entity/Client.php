@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Client
  *
@@ -25,6 +25,14 @@ class Client
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * * @Assert\NotBlank(message="le nom du client ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le nom correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le nom correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $nom;
 
@@ -32,6 +40,14 @@ class Client
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
+     * * @Assert\NotBlank(message="le prenom du client ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le prenom correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le prenom correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $prenom;
 
@@ -39,6 +55,12 @@ class Client
      * @var int
      *
      * @ORM\Column(name="tel", type="integer", nullable=false)
+     * * @Assert\NotBlank(message="le numero du client ne doit pas étre vide")
+     *  @Assert\Length(
+     *      value=8,
+     *     exactMessage="le numero de telephone doit avoir exactement 8 chiffres ",
+     *      allowEmptyString = false
+     *     )
      */
     private $tel;
 
@@ -46,6 +68,14 @@ class Client
      * @var string
      *
      * @ORM\Column(name="poste", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="le poste du client ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le poste correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le poste correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $poste;
 

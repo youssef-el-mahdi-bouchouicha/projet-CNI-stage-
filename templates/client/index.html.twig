@@ -1,0 +1,45 @@
+{% extends 'DashbordBack.html.twig' %}
+
+{% block titre %}liste des Clients{% endblock %}
+{% block miniTitre %}liste des Clients{% endblock %}
+
+{% block content %}
+    <h1>Client index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idc</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Tel</th>
+                <th>Poste</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.idc }}</td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.tel }}</td>
+                <td>{{ client.poste }}</td>
+                <td width="50">
+                    <a class="btn btn-block btn-outline-info" href="{{ path('client_show', {'idc': client.idc}) }}">show</a>
+
+                </td>
+                <td width="50">
+                    <a class="btn btn-block btn-outline-warning " href="{{ path('client_edit', {'idc': client.idc}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

@@ -14,15 +14,15 @@
             </tr>
             <tr>
                 <th>Idc</th>
-                <td>{{ demande.idc }}</td>
+                <td><label style="color: #0074f0">{{ demande.idc.nom  }}</label> {{ demande.idc.prenom }} </td>
             </tr>
             <tr>
                 <th>Ide</th>
-                <td>{{ demande.ide }}</td>
+                <td> <label style="color: #0074f0">{{ demande.ide.nom }}</label> {{ demande.ide.prenom }}</td>
             </tr>
             <tr>
                 <th>Idapp</th>
-                <td>{{ demande.idapp }}</td>
+                <td>{{ demande.idapp.nom }}</td>
             </tr>
             <tr>
                 <th>Datedemande</th>
@@ -45,7 +45,7 @@
                 <td>{{ demande.remarque }}</td>
             </tr>
         <tr>
-            <td>
+            <td width="150">
                 <a class="btn btn-block btn-outline-warning" href="{{ path('demande_edit', {'idd': demande.idd}) }}">edit</a>
             </td>
             <td>

@@ -1,4 +1,4 @@
-{% extends 'DashbordBack.html.twig' %}
+{% extends 'DashbordClient.html.twig' %}
 
 {% block titre %}liste des demande{% endblock %}
 {% block miniTitre %}liste des demandes{% endblock %}
@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for demande in demandes %}
+        {% for demande in mesdemandes %}
             <tr>
                 <td>{{ demande.idd }}</td>
                 <td></td>
@@ -37,13 +37,11 @@
                     <a class="btn btn-block btn-outline-info" href="{{ path('demande_show', {'idd': demande.idd}) }}">show</a>
 
                 </td>
-                <td width="50">
-                    <a class="btn btn-block btn-outline-warning" href="{{ path('demande_edit', {'idd': demande.idd}) }}">edit</a>
-                </td>
+
             </tr>
         {% else %}
             <tr>
-                <td colspan="10">no records found</td>
+                <td colspan="10"><h3 style="color: red">Aucune demande n'a été enregistrée</h3></td>
             </tr>
         {% endfor %}
         </tbody>

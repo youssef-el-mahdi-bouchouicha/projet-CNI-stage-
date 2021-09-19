@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Application;
+use App\Entity\Client;
 use App\Form\ApplicationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -93,5 +94,26 @@ class ApplicationController extends AbstractController
         }
 
         return $this->redirectToRoute('application_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+
+
+
+    /**
+     * @Route("/listeApp/{idc}", name="applicationliste_client", methods={"GET"})
+     */
+    public function indexApplication(int $idc): Response
+    {
+
+        $client= $this->getDoctrine()->getRepository(Client::class)->find($idc);
+        $applications = $this->getDoctrine()
+            ->getRepository(Application::class)
+            ->findAll();
+
+
+        return $this->render('application/indexClient.html.twig', [
+            'applications' => $applications, 'client'=>$client,
+        ]);
     }
 }

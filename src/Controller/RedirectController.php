@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Demande;
 use App\Entity\Reclamation;
 use Knp\Component\Pager\PaginatorInterface;
@@ -48,6 +49,30 @@ class RedirectController extends AbstractController
         return $this->render('signup.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
+    }
+
+
+    /**
+     * @Route("/verifLogin", name="verif_Login")
+     */
+    public function verifLogin(): Response
+    {
+        $login = $_GET['login'];
+        $mdp = $_GET['mdp'];
+        $client = $this->getDoctrine()->getRepository(Client::class)->findOneBy(array('nom' => $login ,'tel' => $mdp));
+
+        if ($login == "admin" && $mdp == "admin") {
+            return $this->render('DashbordBack.html.twig');
+        } else if($login == null && $mdp == null)
+        {
+            return $this->render('signup.html.twig');
+        }
+        else{
+            return $this->render('DashbordClient.html.twig',[
+                "client"=>$client,
+            ]);
+
+        }
     }
 
 }

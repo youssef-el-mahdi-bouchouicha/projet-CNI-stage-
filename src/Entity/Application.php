@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Application
@@ -25,6 +26,14 @@ class Application
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * * * @Assert\NotBlank(message="le nom de l'application ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le nom correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le nom correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $nom;
 
@@ -32,6 +41,14 @@ class Application
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     *  * @Assert\NotBlank(message="la description de l'application ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le description correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le description correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $description;
 

@@ -1,0 +1,36 @@
+{% extends 'DashbordClient.html.twig' %}
+
+{% block titre %}liste des Applications{% endblock %}
+{% block miniTitre %}liste des Applications{% endblock %}
+
+{% block content %}
+    <h1>Application index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idapp</th>
+                <th>Nom</th>
+                <th>Desc</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for application in applications %}
+            <tr>
+                <td>#</td>
+                <td>{{ application.nom }}</td>
+                <td>{{ application.description }}</td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

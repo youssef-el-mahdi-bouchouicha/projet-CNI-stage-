@@ -46,7 +46,7 @@ class Demande
     /**
      * @var \DateTime
      * @Assert\GreaterThan("today")
-     * @ORM\Column(name="RDVrec", type="date", nullable=false)
+     * @ORM\Column(name="RDVrec", type="date", nullable=true)
      */
     private $rdvrec;
 
@@ -54,6 +54,14 @@ class Demande
      * @var string
      *
      * @ORM\Column(name="nomMachine", type="string", length=255, nullable=false)
+     * * @Assert\NotBlank(message="le nom de la machine ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "Le nom correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "Le nom correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $nommachine;
 
@@ -61,6 +69,14 @@ class Demande
      * @var string
      *
      * @ORM\Column(name="remarque", type="string", length=255, nullable=false)
+     * * @Assert\NotBlank(message="la remarque ne doit pas étre vide")
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 100,
+     *      minMessage = "la remarque correct doit comporter au minimum {{ limit }} characters",
+     *      maxMessage = "la remarque correct ne doit pas depasser {{ limit }} characters",
+     *      allowEmptyString = false
+     *     )
      */
     private $remarque;
 

@@ -3,20 +3,7 @@
     <br>
     <h4 align="center">Ajouter une demande</h4>
 
-    <div hidden="hidden" class="form-group">
-        {{ form_label(form.idc,"Nom du client :") }}
-        <div style="color: #ff0000">
-            {{ form_errors(form.idc)}}
-        </div>
-        {{ form_widget(form.idc, {attr: {class:'form-control','id':'idc'}}) }}
-    </div>
-    <div hidden="hidden" class="form-group">
-        {{ form_label(form.ide,"Nom de l'employee:") }}
-        <div style="color: #ff0000">
-            {{ form_errors(form.ide)}}
-        </div>
-        {{ form_widget(form.ide, {attr: {class:'form-control','id':'idc'}}) }}
-    </div>
+
     <div class="form-group">
         {{ form_label(form.idapp,"Nom de l'appli:") }}
         <div style="color: #ff0000">
@@ -32,13 +19,7 @@
 
         {{ form_widget(form.rdvdepo, {attr: {class:'form-control','id':'rdevdepo'}}) }}
     </div>
-    <div class="form-group" >
-        {{ form_label(form.rdvdepo,"rendez_vous pour recuperer le :") }}
-        <div style="color: #ff0000">
-            {{ form_errors(form.rdvrec)}}
-        </div>
-        {{ form_widget(form.rdvrec, {attr: {class:'form-control','id':'rdvrec'}}) }}
-    </div>
+
 
     <div class="form-group" >
         {{ form_label(form.nommachine,"Nom de la machine :") }}

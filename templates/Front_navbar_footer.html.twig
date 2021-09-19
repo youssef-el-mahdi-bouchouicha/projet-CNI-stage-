@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- Title-->
+    <title>
+        PecTECH
+    </title>
+
+    <!-- SEO Meta-->
+    <meta name="description" content="Education theme by EchoTheme" />
+    <meta
+            name="keywords"
+            content="HTML5 Education theme, responsive HTML5 theme, bootstrap 4, Clean Theme"
+    />
+    <meta name="author" content="education" />
+
+    <!-- viewport scale-->
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- Favicon and Apple Icons-->
+    {% block iconfonts %}
+        <link
+
+                rel="icon"
+                type="image/x-icon"
+                href="{{  asset('backoffice/dist/img/lo.ico')  }}"
+        />
+        <link rel="shortcut icon" href="{{ asset('backoffice/dist/img/lo.ico')  }}" />
+        <link
+                rel="apple-touch-icon-precomposed"
+                href="{{ asset('frontoffice/assets/img/favicon/upgradi3.png') }}"
+        />
+
+
+        <!--Google fonts-->
+        <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700%7CWork+Sans:400,500"
+        />
+
+        <!-- Icon fonts -->
+        <script
+                src="https://kit.fontawesome.com/690c596bf5.js"
+                crossorigin="anonymous"
+        ></script>
+        <link
+                rel="stylesheet"
+                href="{{ asset('frontoffice/assets/fonts/themify-icons/css/themify-icons.css') }}"
+        />
+    {% endblock %}
+    <!-- stylesheet-->
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('frontoffice/assets/css/vendors.bundle.css') }}" />
+        <link rel="stylesheet" href="{{ asset('frontoffice/assets/css/style.css') }}" />
+    {% endblock %}
+</head>
+
+<body>
+<header class="site-header bg-dark text-white-0_5">
+    <div class="container">
+        <div class="row align-items-center justify-content-between mx-0">
+            <ul class="list-inline d-none d-lg-block mb-0">
+                <li class="list-inline-item mr-3">
+                    <div class="d-flex align-items-center">
+                        <i class="ti-email mr-2"></i>
+                        <a href="mailto:webcni@cni.tn">webcni@cni.tn</a>
+                    </div>
+                </li>
+                <li class="list-inline-item mr-3">
+                    <div class="d-flex align-items-center">
+                        <i class="ti-headphone mr-2"></i>
+                        <a href="tel:+216 71 78 30 55">+216 71 78 30 55</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="list-inline mb-0">
+                <li
+                        class="list-inline-item mr-0 p-3 border-right border-left border-white-0_1"
+                >
+                    <a href="#"><i class="ti-facebook"></i></a>
+                </li>
+                <li class="list-inline-item mr-0 p-3 border-right border-white-0_1">
+                    <a href="#"><i class="ti-twitter"></i></a>
+                </li>
+                <li class="list-inline-item mr-0 p-3 border-right border-white-0_1">
+                    <a href="#"><i class="ti-vimeo"></i></a>
+                </li>
+                <li class="list-inline-item mr-0 p-3 border-right border-white-0_1">
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </li>
+            </ul>
+            <ul class="list-inline mb-0">
+                <li
+                        class="list-inline-item mr-0 p-md-3 p-2 border-right border-left border-white-0_1"
+                >
+                    <a href="{{ path('login') }}">Login</a>
+                </li>
+                <li
+                        class="list-inline-item mr-0 p-md-3 p-2 border-right border-white-0_1"
+                >
+                    <a href="{{ path('signup') }}">Register</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END END row-->
+    </div>
+    <!-- END container-->
+</header>
+<!-- END site header-->
+
+<nav class="ec-nav sticky-top bg-white">
+    <div class="container">
+        <div class="navbar p-0 navbar-expand-lg">
+            <div class="navbar-brand">
+                <a style="color: red" class="logo-default" href=""
+                >
+                    <img alt="" src="{{ asset('backoffice/dist/img/pectechLO.png') }}" width="60" height="60"/>
+                    <span style=  "color: #0074f0;font-size: larger">PecTECH</span>
+                </a>
+            </div>
+            <span
+                    aria-expanded="false"
+                    class="navbar-toggler ml-auto collapsed"
+                    data-target="#ec-nav__collapsible"
+                    data-toggle="collapse"
+            >
+						<div class="hamburger hamburger--spin js-hamburger">
+							<div class="hamburger-box">
+								<div class="hamburger-inner"></div>
+							</div>
+						</div>
+					</span>
+
+        </div>
+    </div>
+    <!-- END container-->
+</nav>
+<!-- END ec-nav -->
+
+<div class="site-search">
+    <div class="site-search__close bg-black-0_8"></div>
+    <form class="form-site-search" action="#" method="POST">
+        <div class="input-group">
+            <input
+                    type="text"
+                    placeholder="Search"
+                    class="form-control py-3 border-white"
+                    required=""
+            />
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="ti-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- END site-search-->
+
+{% block client %}
+
+{% endblock %}
+{% block title %}{% endblock %}
+
+
+{% block body %}{% endblock %}
+
+
+{% block talk_chat %}
+    <div  class="col-sm-6">
+        <!----- block chat bot --->
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/6077961ff7ce1827093a8b5d/1f39i4r77';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <!----- block chat bot --->
+    </div>
+
+{% endblock %}
+
+<footer class="site-footer">
+    <div class="footer-top bg-dark text-white-0_6 pt-5 paddingBottom-100">
+        <div class="container" >
+
+
+
+
+            <div class="row" >
+
+
+                <div class="col-lg-3 col-md-6 mt-5">
+                    <br><br><br><br>
+                    <img width="700" src="{{ asset('backoffice/dist/img/pectechLOGO.png') }}">
+
+
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5">
+
+
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5">
+
+                </div>
+                <div class="col-lg-3 col-md-6 mt-5">
+                    <h4 class="h5 text-white">Contact Us</h4>
+                    <div class="width-3rem bg-primary height-3 mt-3"></div>
+                    <ul class="list-unstyled marginTop-40">
+                        <li class="mb-3">
+                            <i class="ti-headphone mr-3"></i
+                            ><a href="tel:+216 71 78 30 55"> +216 71 78 30 55</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="ti-email mr-3"></i
+                            ><a href="mailto:webcni@cni.tn">webcni@cni.tn</a>
+                        </li>
+                        <li class="mb-3">
+                            <div class="media">
+                                <i class="ti-location-pin mt-2 mr-3"></i>
+                                <div class="media-body">
+											<span>
+												17 Rue Belhassen Ben Chaabane 1005 El-Omrane</span >
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <a class="iconbox bg-white-0_2 hover:primary" href="https://www.facebook.com/CNITUNISIA/"
+                            ><i class="ti-facebook"> </i
+                                ></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="iconbox bg-white-0_2 hover:primary" href="https://twitter.com/cnitunisia?lang=fr"
+                            ><i class="ti-twitter"> </i
+                                ></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="iconbox bg-white-0_2 hover:primary" href="https://tn.linkedin.com/in/cnitunisia"
+                            ><i class="ti-linkedin"> </i
+                                ></a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+
+
+            <!-- END row-->
+        </div>
+        <!-- END container-->
+    </div>
+    <!-- END footer-top-->
+
+    <div class="footer-bottom bg-black-0_9 py-5 text-center">
+        <div class="container">
+            <p class="text-white-0_5 mb-0">
+                &copy; <strong>Copyright &copy; 2020-2021</strong>
+                All rights reserved.
+                <br> <b>Version</b> 1.0.1
+                <a href="http://www.cni.tn" target="_blunk">CNI</a>
+            </p>
+        </div>
+    </div>
+    <!-- END footer-bottom-->
+</footer>
+<!-- END site-footer -->
+
+<div class="scroll-top">
+    <i class="ti-angle-up"></i>
+</div>
+{% block js %}
+    <script src="{{ asset('frontoffice/assets/js/vendors.bundle.js') }}"></script>
+    <script src="{{ asset('frontoffice/assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('frontoffice/assets/js/app.js') }}"></script>
+    <script src="{{ asset('frontoffice/assets/vendor/jquery.countdown/dist/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('frontoffice/assets/js/sweetalert.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>

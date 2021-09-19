@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Demande;
+
 use App\Form\DemandeType;
+use App\Form\DemandeCType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,6 +31,7 @@ class DemandeController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/new", name="demande_new", methods={"GET","POST"})
      */
@@ -50,6 +54,7 @@ class DemandeController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 
     /**
      * @Route("/{idd}", name="demande_show", methods={"GET"})
@@ -93,5 +98,56 @@ class DemandeController extends AbstractController
         }
 
         return $this->redirectToRoute('demande_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+
+
+    /**
+     * @Route("/listeD/{idc}", name="demandeliste_client", methods={"GET"})
+     */
+    public function listeDC(int $idc): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $client= $entityManager->getRepository(Client::class)->find($idc);
+        $mesdemandes= $entityManager->getRepository(Demande::class)->findBy(array('idc' => $idc));
+
+
+        return $this->render('demande/indexClient.html.twig', [
+            'mesdemandes' => $mesdemandes, 'client'=> $client,
+        ]);
+    }
+
+    /**
+     * @Route("/newC/{idc}", name="demande_Client", methods={"GET","POST"})
+     */
+    public function newDClient(Request $request, int $idc): Response
+    {
+        $client=$this->getDoctrine()->getRepository(Client::class)->find($idc);
+        $demande = new Demande();
+        $form = $this->createForm(DemandeCType::class, $demande);
+        $form->handleRequest($request);
+        $demande->setIdc($client);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($demande);
+            $entityManager->flush();
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+
+            $mesdemandes= $entityManager->getRepository(Demande::class)->findBy(array('idc' => $idc));
+
+
+            return $this->render('demande/indexClient.html.twig', [
+                'mesdemandes' => $mesdemandes, 'client'=> $client,
+            ]);
+        }
+
+        return $this->render('demande/newDemandeClient.html.twig', [
+            'demande' => $demande,'client' =>$client,
+            'form' => $form->createView(),
+        ]);
     }
 }
